@@ -13,8 +13,8 @@ import java.util.List;
 
 public class RouteDAO {
     public List<Route> searchRoutes(String source, String destination, String date) throws SQLException {
-        List<Route> routes = new ArrayList<>();
         String sql = "SELECT * FROM Routes WHERE source = ? AND destination = ? AND DATE(departure_time) = ?";
+        List<Route> routes = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, source);
@@ -56,16 +56,6 @@ public class RouteDAO {
                 );
             }
             return null;
-        }
-    }
-
-    public void updateAvailableSeats(int routeId, int seats) throws SQLException {
-        String sql = "UPDATE Routes SET available_seats = available_seats - ? WHERE route_id = ?";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, seats);
-            stmt.setInt(2, routeId);
-            stmt.executeUpdate();
         }
     }
 }

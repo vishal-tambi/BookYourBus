@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.busbooking.dao.UserDAO, com.busbooking.model.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,8 @@
                     <li class="nav-item"><a class="nav-link" href="register.jsp">Register</a></li>
                     <li class="nav-item"><a class="nav-link" href="search.jsp">Search</a></li>
                     <li class="nav-item"><a class="nav-link" href="admin.jsp">Admin</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.jsp">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.jsp">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.jsp">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -43,12 +44,18 @@
                         <button type="submit" class="btn btn-primary w-100">Register</button>
                     </form>
                     <p class="text-center mt-3">Already have an account? <a href="login.jsp">Login</a></p>
-                    <%-- Placeholder for registration logic --%>
                     <%
                         if ("POST".equalsIgnoreCase(request.getMethod())) {
-                            String name = request.getParameter("name");
-                            String email = request.getParameter("email");
-                            out.println("<p class='text-success mt-3'>Registered: " + name + " (" + email + ")</p>");
+                            try {
+                                String name = request.getParameter("name");
+                                String email = request.getParameter("email");
+                                String password = request.getParameter("password");
+                                User user = new User(0, name, email, password, "user");
+                                new UserDAO().registerUser(user);
+                                out.println("<p class='text-success mt-3'>Registration successful! Please <a href='login.jsp'>login</a>.</p>");
+                            } catch (Exception e) {
+                                out.println("<p class='text-danger mt-3'>Error: " + e.getMessage() + "</p>");
+                            }
                         }
                     %>
                 </div>

@@ -12,11 +12,10 @@ public class Route {
     private double price;
     private int availableSeats;
 
-    // Constructors
     public Route() {}
 
     public Route(int routeId, String source, String destination, int busId, LocalDateTime departureTime, 
-                 LocalDateTime arrivalTime, double price, int availableSeats) {
+                LocalDateTime arrivalTime, double price, int availableSeats) {
         this.routeId = routeId;
         this.source = source;
         this.destination = destination;
@@ -27,7 +26,6 @@ public class Route {
         this.availableSeats = availableSeats;
     }
 
-    // Getters and Setters
     public int getRouteId() { return routeId; }
     public void setRouteId(int routeId) { this.routeId = routeId; }
     public String getSource() { return source; }

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.busbooking.dao.BookingDAO, com.busbooking.model.Booking, com.busbooking.model.User, java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,8 @@
                     <li class="nav-item"><a class="nav-link" href="register.jsp">Register</a></li>
                     <li class="nav-item"><a class="nav-link" href="search.jsp">Search</a></li>
                     <li class="nav-item"><a class="nav-link" href="admin.jsp">Admin</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.jsp">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.jsp">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -30,18 +31,34 @@
             <div class="col-md-8">
                 <div class="card p-4">
                     <h2 class="text-center mb-4">Admin Dashboard</h2>
+                    <%
+                        User user = (User) session.getAttribute("user");
+                        if (user == null || !"admin".equals(user.getRole())) {
+                            response.sendRedirect("login.jsp");
+                        } else {
+                            try {
+                                BookingDAO bookingDAO = new BookingDAO();
+                                List<Booking> bookings = bookingDAO.getUserBookings(user.getUserId());
+                    %>
                     <div class="mb-4">
-                        <h3>Manage Buses</h3>
-                        <p>Bus 1 - 40 seats <a href="#" class="btn btn-sm btn-outline-primary">Edit</a></p>
-                    </div>
-                    <div class="mb-4">
-                        <h3>Manage Routes</h3>
-                        <p>City A to City B - 10:00 AM <a href="#" class="btn btn-sm btn-outline-primary">Edit</a></p>
-                    </div>
-                    <div>
                         <h3>View Bookings</h3>
-                        <p>User1 - City A to City B - Seat 5</p>
+                        <%
+                            if (bookings.isEmpty()) {
+                                out.println("<p>No bookings found.</p>");
+                            } else {
+                                for (Booking booking : bookings) {
+                                    out.println("<p>Booking ID: " + booking.getBookingId() + " - Route ID: " + booking.getRouteId() +
+                                                " - Seat: " + booking.getSeatNumber() + " - Status: " + booking.getStatus() + "</p>");
+                                }
+                            }
+                        %>
                     </div>
+                    <%
+                            } catch (Exception e) {
+                                out.println("<p class='text-danger'>Error: " + e.getMessage() + "</p>");
+                            }
+                        }
+                    %>
                 </div>
             </div>
         </div>

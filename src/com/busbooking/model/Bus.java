@@ -6,7 +6,6 @@ public class Bus {
     private int totalSeats;
     private String status;
 
-    // Constructors
     public Bus() {}
 
     public Bus(int busId, String busName, int totalSeats, String status) {
@@ -16,7 +15,6 @@ public class Bus {
         this.status = status;
     }
 
-    // Getters and Setters
     public int getBusId() { return busId; }
     public void setBusId(int busId) { this.busId = busId; }
     public String getBusName() { return busName; }

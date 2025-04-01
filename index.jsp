@@ -31,7 +31,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div>
-            <h3>Company by Vishal's Travel</h3>
+            <h3 style="color: red; font-weight: 500;" >Company by Vishal's Travel</h3>
             <br>
             <h1>Welcome to Bus Booking</h1>
             <p>Book your bus tickets effortlessly with the best online platform. Fast, secure, and reliable!</p>

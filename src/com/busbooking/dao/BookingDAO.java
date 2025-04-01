@@ -19,15 +19,21 @@ public class BookingDAO {
             stmt.setInt(1, booking.getUserId());
             stmt.setInt(2, booking.getRouteId());
             stmt.setInt(3, booking.getSeatNumber());
-            stmt.setObject(4, booking.getBookingDate());
+            stmt.setTimestamp(4, java.sql.Timestamp.valueOf(booking.getBookingDate()));
             stmt.setString(5, booking.getStatus());
             stmt.executeUpdate();
+
+            String updateSql = "UPDATE Routes SET available_seats = available_seats - 1 WHERE route_id = ?";
+            try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                updateStmt.setInt(1, booking.getRouteId());
+                updateStmt.executeUpdate();
+            }
         }
     }
 
     public List<Booking> getUserBookings(int userId) throws SQLException {
-        List<Booking> bookings = new ArrayList<>();
         String sql = "SELECT * FROM Bookings WHERE user_id = ?";
+        List<Booking> bookings = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, userId);
@@ -44,25 +50,5 @@ public class BookingDAO {
             }
         }
         return bookings;
-    }
-
-    public Booking getBookingById(int bookingId) throws SQLException {
-        String sql = "SELECT * FROM Bookings WHERE booking_id = ?";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, bookingId);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return new Booking(
-                    rs.getInt("booking_id"),
-                    rs.getInt("user_id"),
-                    rs.getInt("route_id"),
-                    rs.getInt("seat_number"),
-                    rs.getTimestamp("booking_date").toLocalDateTime(),
-                    rs.getString("status")
-                );
-            }
-            return null;
-        }
     }
 }

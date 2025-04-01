@@ -10,7 +10,6 @@ public class Booking {
     private LocalDateTime bookingDate;
     private String status;
 
-    // Constructors
     public Booking() {}
 
     public Booking(int bookingId, int userId, int routeId, int seatNumber, LocalDateTime bookingDate, String status) {
@@ -22,7 +21,6 @@ public class Booking {
         this.status = status;
     }
 
-    // Getters and Setters
     public int getBookingId() { return bookingId; }
     public void setBookingId(int bookingId) { this.bookingId = bookingId; }
     public int getUserId() { return userId; }
