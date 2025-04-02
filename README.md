@@ -1,6 +1,6 @@
 # Bus Booking System 🚍
 
-![Bus Booking Banner](https://via.placeholder.com/1200x400.png?text=Bus+Booking+System)  
+  
 *A modern, user-friendly web application for booking bus tickets online.*
 
 ---
@@ -58,6 +58,16 @@ This project was developed as a full-stack web application, integrating a JSP-ba
 ---
 
 ## 📂 Project Structure
+busBooking/
+├── README.md
+├── css/
+│   └── style.css
+├── images/
+├── js/
+├── src/
+├── WEB-INF/
+├── about.jsp
+└── ...
 
 ---
 
@@ -91,6 +101,6 @@ This project is licensed under the MIT License - see the  file for details.
 📧 Contact
 For any inquiries, reach out to:
 
-Email: support@busbooking.com
-GitHub: your-username
+Email: tambivishal3@gmail.com   
+
 Happy Booking! 🚍
