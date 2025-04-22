@@ -554,7 +554,8 @@
                 </div>
                 
                 <div class="col-lg-6 text-center mt-5 mt-lg-0">
-                    <img src="https://cdn.pixabay.com/photo/2017/02/11/22/38/smartphone-2059232_1280.png" alt="Mobile App" class="img-fluid" style="max-height: 500px;">
+                    <h3 style="border: 2px solid red;">Coming Soon!</h3>
+
                 </div>
             </div>
         </div>

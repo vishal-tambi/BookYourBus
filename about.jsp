@@ -392,34 +392,34 @@
                     <h2>Meet Our Team</h2>
                     <p class="lead">The dedicated professionals behind Bus Booking</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-3">
                     <div class="team-member">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member">
-                        <h4>Rajesh Kumar</h4>
+                        <img src="images/vresume.jpg" alt="Team Member">
+                        <h4>Vishal Tambi</h4>
                         <p class="text-muted">Founder & CEO</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="team-member">
                         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member">
                         <h4>Priya Sharma</h4>
                         <p class="text-muted">Chief Technology Officer</p>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+                <div class="col-lg-5 col-md-6">
                     <div class="team-member">
-                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Team Member">
-                        <h4>Amit Patel</h4>
+                        <img src="images/son_of_vishal_tambi.jpg" alt="Team Member">
+                        <h4>Govind Goyal</h4>
                         <p class="text-muted">Operations Manager</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="team-member">
                         <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team Member">
                         <h4>Neha Gupta</h4>
                         <p class="text-muted">Customer Relations</p>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Testimonials -->
