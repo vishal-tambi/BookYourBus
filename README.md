@@ -11,6 +11,12 @@ The **Bus Booking System** is a web-based application designed to simplify the p
 
 This project was developed as a full-stack web application, integrating a JSP-based frontend with a Java backend using JDBC for database connectivity.
 
+<img width="1919" height="939" alt="Screenshot 2025-04-23 113529" src="https://github.com/user-attachments/assets/dcf45261-6644-4998-88c4-baf247381702" />
+
+<img width="1890" height="929" alt="Screenshot 2025-04-23 113622" src="https://github.com/user-attachments/assets/10b989dc-6453-465c-8fa2-8f6ea0dd36e5" />
+
+<img width="1914" height="922" alt="Screenshot 2025-04-23 113642" src="https://github.com/user-attachments/assets/6c46be52-935d-4053-903e-e1ebe515372d" />
+
 ---
 
 ## ✨ Features
